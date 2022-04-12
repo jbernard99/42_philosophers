@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 12:02:49 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 11:08:57 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/11 15:36:57 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ void	activity(t_philo *ph)
 	log_activity(ph, "is sleeping");
 	ft_usleep(ph->d->tt_sleep);
 	log_activity(ph, "is thinking");
-	if (ph->id % 2 != 0)
-		ft_usleep(100);
+	//if (ph->id % 2 != 0)
+	//ft_usleep(100);
 }

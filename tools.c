@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:49:52 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 12:46:03 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/11 15:35:55 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	log_activity(t_philo *ph, char *str)
 	pthread_mutex_unlock(&ph->d->stop_lock);
 	elapsed_time = get_time() - ph->d->start_time;
 	pthread_mutex_lock(&ph->d->log_lock);
-	printf("%lld : Philosopher #%d %s.\n", elapsed_time, ph->id, str);
+	printf("%lldms : Philosopher #%d %s.\n", elapsed_time, ph->id, str);
 	pthread_mutex_unlock(&ph->d->log_lock);
 }
 
@@ -74,7 +74,7 @@ void	ft_usleep(long long time_in_ms)
 
 	start_time = get_time();
 	while ((get_time() - start_time) < time_in_ms)
-		usleep(time_in_ms / 10);
+		usleep(1);
 }
 
 long long	get_time()

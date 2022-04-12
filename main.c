@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:59:59 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 12:47:27 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/11 15:31:02 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int argc, char *argv[])
 		return (printf("An argument is invalid! (1st:[1:200]; 2nd,3rd,4fth >= 60; 5th >= 1)"));
 	init_data(data, &args);
 	ph = init_philos(data);
-	write(1, "Before Dinner OK\n", 17);
 	if (!start_dinner(ph))
 		return (printf("Error during thread creations."));
 	return (0);
