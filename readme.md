@@ -7,8 +7,8 @@ In this project from 42 Quebec, we are managing threads
 can eat before they die of hunger.
 </br>
 To use to program: 
+</br>
 	<code>make all</code>
-	</br>
 	<code>./philo ARG1 ARG2 ARG3 ARG4 (opt.) ARG5</code>
 </br>
 ARG1 : Number of philosophers (Threads)
