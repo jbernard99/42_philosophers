@@ -3,7 +3,9 @@
 		<h1>Philosophers Dining Problem</h1>
 		</br>
 		<pre>
-In this project from 42 Quebec, we are managing threads (Philosophers) trying to access mutexes (Forks) so that they can eat before they die of hunger.
+In this project from 42 Quebec, we are managing threads 
+(Philosophers) trying to access mutexes (Forks) so that they 
+can eat before they die of hunger.
 </br>
 </br>
 To use to program: 
