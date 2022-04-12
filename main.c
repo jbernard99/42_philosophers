@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:59:59 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 15:31:02 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/12 11:01:43 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	start_dinner(t_philo *ph)
 	i = -1;
 	while (++i < ph->d->nb_philo)
 	{
-		if(pthread_join(ph[i].th, NULL))
+		if (pthread_join(ph[i].th, NULL))
 			return (0);
 	}
 	return (1);
@@ -41,13 +41,13 @@ int	main(int argc, char *argv[])
 	data = malloc(sizeof(t_data));
 	argv++;
 	if (--argc < 4 || argc > 5)
-		return (printf("Wrong number of arguments."));
+		return (printf(ARG_NB_ERR));
 	setup_settings(&args, argc, argv);
 	if (!validate_settings(&args, argc))
-		return (printf("An argument is invalid! (1st:[1:200]; 2nd,3rd,4fth >= 60; 5th >= 1)"));
+		return (printf(ARG_RANGE_ERR));
 	init_data(data, &args);
 	ph = init_philos(data);
 	if (!start_dinner(ph))
-		return (printf("Error during thread creations."));
+		return (printf(THRD_ERR));
 	return (0);
 }

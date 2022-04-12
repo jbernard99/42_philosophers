@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 11:32:23 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 12:39:44 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/12 11:29:36 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*death(void *arg)
 {
-	t_philo *ph;
+	t_philo	*ph;
 	int		stop;
 
-	ph = (t_philo*)arg;
+	ph = (t_philo *)arg;
 	stop = 0;
 	while (!stop)
 	{
@@ -38,10 +38,10 @@ void	*death(void *arg)
 
 void	*routine(void *arg)
 {
-	t_philo *ph;
+	t_philo	*ph;
 	int		stop;
 
-	ph = (t_philo*)arg;
+	ph = (t_philo *)arg;
 	ph->last_t_ate = ph->d->start_time;
 	if (pthread_create(&ph->death_th, NULL, &death, ph))
 		return (NULL);

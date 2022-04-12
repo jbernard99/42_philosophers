@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:43:32 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 12:37:50 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/12 11:02:36 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,28 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
+
+# define CRESET "\033[0m"
+# define CBOLD "\033[1m"
+# define CRED "\033[0;31m"
+# define CGREEN "\033[0;32m"
+# define CYELLOW "\033[0;33m"
+# define CBLUE "\033[0;34m"
+# define CPURPLE "\033[0;35m"
+# define CCYAN "\033[0;36m"
+# define CWHITE "\033[0;37m"
+
+# define ERR "Error :"
+# define ARG_NB_ERR "Wrong number of arguments.\n"
+# define ARG_RANGE_ERR "An argument is invalid!"
+# define THRD_ERR "Error during thread creations.\n"
+
+# define PICK_L_FORK "picked up his left fork🍴"
+# define PICK_R_FORK "picked up his right fork🍴"
+# define EATING "is eating🍝"
+# define SLEEPING "is sleeping😴"
+# define THINKING "is thinking🤔"
+# define DIED "DIED💀"
 
 typedef struct s_data
 {
@@ -46,7 +68,7 @@ typedef struct s_philo
 	long long		last_t_ate;
 }	t_philo;
 
-typedef	struct s_args
+typedef struct s_args
 {
 	int	nb_philo;
 	int	tt_die;
@@ -57,7 +79,7 @@ typedef	struct s_args
 
 // validate_input.c //
 int			validate_settings(t_args *args, int argc);
-void		setup_settings(t_args *args, int argc, char* argv[]);
+void		setup_settings(t_args *args, int argc, char *argv[]);
 
 // routine.c //
 void		*routine(void *arg);
@@ -69,12 +91,11 @@ void		activity(t_philo *ph);
 void		init_data(t_data *data, t_args *args);
 t_philo		*init_philos(t_data *data);
 
-
 // tools.c //
 void		log_activity(t_philo *ph, char *str);
 int			ft_atoi(const char *str);
 int			ft_strcmp(const char *s1, const char *s2);
 void		ft_usleep(long long time_in_ms);
-long long	get_time();
+long long	get_time(void);
 
 #endif

@@ -30,7 +30,7 @@ int	validate_settings(t_args *args, int argc)
 	return (1);
 }
 
-void	setup_settings(t_args *args, int argc, char* argv[])
+void	setup_settings(t_args *args, int argc, char *argv[])
 {
 	args->nb_philo = ft_atoi(argv[0]);
 	args->tt_die = ft_atoi(argv[1]);

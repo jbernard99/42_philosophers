@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 12:02:49 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 15:36:57 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/12 10:57:46 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	even_ph(t_philo *ph)
 {
 	pthread_mutex_lock(ph->right_f);
-	log_activity(ph, "picked up his right fork");
+	log_activity(ph, PICK_R_FORK);
 	if (ph->d->nb_philo == 1)
 	{
 		pthread_mutex_unlock(ph->right_f);
@@ -23,8 +23,8 @@ void	even_ph(t_philo *ph)
 		return ;
 	}
 	pthread_mutex_lock(&ph->left_f);
-	log_activity(ph, "picked up his left fork");
-	log_activity(ph, "is eating");
+	log_activity(ph, PICK_L_FORK);
+	log_activity(ph, EATING);
 	ph->times_eaten++;
 	ph->last_t_ate = get_time();
 	ft_usleep(ph->d->tt_eat);
@@ -35,7 +35,7 @@ void	even_ph(t_philo *ph)
 void	odd_ph(t_philo *ph)
 {
 	pthread_mutex_lock(&ph->left_f);
-	log_activity(ph, "picked up his left fork");
+	log_activity(ph, PICK_L_FORK);
 	if (ph->d->nb_philo == 1)
 	{
 		pthread_mutex_unlock(&ph->left_f);
@@ -43,8 +43,8 @@ void	odd_ph(t_philo *ph)
 		return ;
 	}
 	pthread_mutex_lock(ph->right_f);
-	log_activity(ph, "picked up his right fork");
-	log_activity(ph, "is eating");
+	log_activity(ph, PICK_R_FORK);
+	log_activity(ph, EATING);
 	ph->times_eaten++;
 	ph->last_t_ate = get_time();
 	ft_usleep(ph->d->tt_eat);
@@ -65,9 +65,7 @@ void	activity(t_philo *ph)
 		pthread_mutex_unlock(&ph->d->stop_lock);
 		return ;
 	}
-	log_activity(ph, "is sleeping");
+	log_activity(ph, SLEEPING);
 	ft_usleep(ph->d->tt_sleep);
-	log_activity(ph, "is thinking");
-	//if (ph->id % 2 != 0)
-	//ft_usleep(100);
+	log_activity(ph, THINKING);
 }

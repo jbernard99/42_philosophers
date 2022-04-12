@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:49:52 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 15:35:55 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/12 11:30:47 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	log_activity(t_philo *ph, char *str)
 	pthread_mutex_unlock(&ph->d->stop_lock);
 	elapsed_time = get_time() - ph->d->start_time;
 	pthread_mutex_lock(&ph->d->log_lock);
-	printf("%lldms : Philosopher #%d %s.\n", elapsed_time, ph->id, str);
+	if (!ph->d->stop)
+		printf("%lldms : Philosopher #%d %s.\n", elapsed_time, ph->id, str);
+	else
+		printf("%lldms : Philosopher #%d " DIED ".\n", elapsed_time, ph->id);
 	pthread_mutex_unlock(&ph->d->log_lock);
 }
 
@@ -40,7 +43,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
-
 
 int	ft_atoi(const char *str)
 {
@@ -77,7 +79,7 @@ void	ft_usleep(long long time_in_ms)
 		usleep(1);
 }
 
-long long	get_time()
+long long	get_time(void)
 {
 	static struct timeval	tv;
 

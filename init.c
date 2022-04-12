@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 10:20:42 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/11 12:34:47 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/12 10:58:19 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	give_forks(t_philo *ph)
 
 t_philo	*init_philos(t_data *data)
 {
-	int	i;
-	t_philo *ph;
+	int		i;
+	t_philo	*ph;
 
 	ph = malloc(sizeof(t_philo) * data->nb_philo);
 	if (!ph)
