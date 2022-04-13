@@ -6,11 +6,13 @@
 			(Philosophers) trying to access mutexes (Forks) 
 			so that they can eat before they die of hunger.
 			</br>
+			</br>
 			To use to program: 
 			</br>
 			<code>make all</code>
 			</br>
 			<code>./philo ARG1 ARG2 ARG3 ARG4 (opt.) ARG5</code>
+			</br>
 			</br>
 			ARG1 : Number of philosophers (Threads) </br>
 			ARG2 : Time in ms before Philosophers die.</br>
