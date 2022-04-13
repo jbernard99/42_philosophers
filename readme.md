@@ -9,6 +9,7 @@
 			To use to program: 
 			</br>
 			<code>make all</code>
+			</br>
 			<code>./philo ARG1 ARG2 ARG3 ARG4 (opt.) ARG5</code>
 			</br>
 			ARG1 : Number of philosophers (Threads)
