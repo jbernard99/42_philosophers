@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:59:59 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/12 11:01:43 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/12 13:12:13 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,23 @@ int	start_dinner(t_philo *ph)
 	return (1);
 }
 
+void	exit_routine(t_philo *ph, t_data *data)
+{
+	int	i;	
+
+	pthread_mutex_destroy(&data->stop_lock);
+	pthread_mutex_destroy(&data->log_lock);
+	pthread_mutex_destroy(&data->last_ate);
+	i = -1;
+	while (++i < data->nb_philo)
+	{
+		pthread_mutex_destroy(&ph[i].left_f);
+		ph[i].right_f = NULL;
+	}
+	free(data);
+	free(ph);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_args		args;
@@ -49,5 +66,6 @@ int	main(int argc, char *argv[])
 	ph = init_philos(data);
 	if (!start_dinner(ph))
 		return (printf(THRD_ERR));
+	exit_routine(ph, data);
 	return (0);
 }
