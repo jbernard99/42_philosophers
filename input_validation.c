@@ -30,6 +30,26 @@ int	validate_settings(t_args *args, int argc)
 	return (1);
 }
 
+int	check_if_all_digits(char *argv[])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 void	setup_settings(t_args *args, int argc, char *argv[])
 {
 	args->nb_philo = ft_atoi(argv[0]);

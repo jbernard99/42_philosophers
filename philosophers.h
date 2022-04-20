@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:43:32 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/12 11:02:36 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:50:01 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@
 # define CCYAN "\033[0;36m"
 # define CWHITE "\033[0;37m"
 
-# define ERR "Error :"
 # define ARG_NB_ERR "Wrong number of arguments.\n"
-# define ARG_RANGE_ERR "An argument is invalid!"
+# define ARG_RANGE_ERR "An argument is invalid!\n"
 # define THRD_ERR "Error during thread creations.\n"
+# define ARG_CHAR_ERR "Non-Digit character in arguments.\n"
 
 # define PICK_L_FORK "picked up his left fork🍴"
 # define PICK_R_FORK "picked up his right fork🍴"
@@ -80,6 +80,7 @@ typedef struct s_args
 // validate_input.c //
 int			validate_settings(t_args *args, int argc);
 void		setup_settings(t_args *args, int argc, char *argv[]);
+int			check_if_all_digits(char *argv[]);
 
 // routine.c //
 void		*routine(void *arg);

@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:59:59 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/12 13:12:13 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/20 11:50:39 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	main(int argc, char *argv[])
 	argv++;
 	if (--argc < 4 || argc > 5)
 		return (printf(ARG_NB_ERR));
+	if (!check_if_all_digits(argv))
+		return (printf(ARG_CHAR_ERR));
 	setup_settings(&args, argc, argv);
 	if (!validate_settings(&args, argc))
 		return (printf(ARG_RANGE_ERR));
