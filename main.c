@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:59:59 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/20 15:46:25 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/21 11:01:41 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,15 @@ void	exit_routine(t_philo *ph, t_data *data)
 		pthread_mutex_destroy(&ph[i].left_f);
 		ph[i].right_f = NULL;
 	}
-	free(data);
 	free(ph);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_args		args;
-	t_data		*data;
+	t_data		data;
 	t_philo		*ph;
 
-	data = malloc(sizeof(t_data));
 	argv++;
 	if (--argc < 4 || argc > 5)
 		return (printf(ARG_NB_ERR));
@@ -64,10 +62,10 @@ int	main(int argc, char *argv[])
 	setup_settings(&args, argc, argv);
 	if (!validate_settings(&args, argc))
 		return (printf(ARG_RANGE_ERR));
-	init_data(data, &args);
-	ph = init_philos(data);
+	data = init_data(&args);
+	ph = init_philos(&data);
 	if (!start_dinner(ph))
 		return (printf(THRD_ERR));
-	exit_routine(ph, data);
+	exit_routine(ph, &data);
 	return (0);
 }

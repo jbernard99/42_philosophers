@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 10:20:42 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/12 10:58:19 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/21 11:02:31 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,19 @@ t_philo	*init_philos(t_data *data)
 	return (ph);
 }
 
-void	init_data(t_data *data, t_args *args)
+t_data	init_data(t_args *args)
 {
-	data->nb_philo = args->nb_philo;
-	data->tt_die = args->tt_die;
-	data->tt_eat = args->tt_eat;
-	data->tt_sleep = args->tt_sleep;
-	data->tm_eat = args->tm_eat;
-	data->stop = 0;
-	data->start_time = get_time();
-	pthread_mutex_init(&data->stop_lock, NULL);
-	pthread_mutex_init(&data->log_lock, NULL);
-	pthread_mutex_init(&data->last_ate, NULL);
+	t_data	data;
+
+	data.nb_philo = args->nb_philo;
+	data.tt_die = args->tt_die;
+	data.tt_eat = args->tt_eat;
+	data.tt_sleep = args->tt_sleep;
+	data.tm_eat = args->tm_eat;
+	data.stop = 0;
+	data.start_time = get_time();
+	pthread_mutex_init(&data.stop_lock, NULL);
+	pthread_mutex_init(&data.log_lock, NULL);
+	pthread_mutex_init(&data.last_ate, NULL);
+	return (data);
 }

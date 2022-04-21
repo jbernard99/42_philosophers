@@ -6,7 +6,7 @@
 /*   By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:43:32 by jbernard          #+#    #+#             */
-/*   Updated: 2022/04/20 15:32:27 by jbernard         ###   ########.fr       */
+/*   Updated: 2022/04/21 10:58:05 by jbernard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		*routine(void *arg);
 void		activity(t_philo *ph);
 
 // init.c //
-void		init_data(t_data *data, t_args *args);
+t_data		init_data(t_args *args);
 t_philo		*init_philos(t_data *data);
 
 // tools.c //
