@@ -6,7 +6,7 @@
 #    By: jbernard <jbernard@student.42quebec.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 10:17:03 by jbernard          #+#    #+#              #
-#    Updated: 2022/04/21 11:50:40 by jbernard         ###   ########.fr        #
+#    Updated: 2022/04/21 11:53:56 by jbernard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC = main.c \
 all: ${NAME}
 
 ${NAME}: ${SRC}
+	
 	${CC} ${CFLAGS} ${CINCLUDES} ${SRC} -o ${NAME}
 
 .SILENT:
@@ -36,4 +37,4 @@ clean:
 fclean: clean
 
 re: fclean all
-	echo "Remake Complete!"%
+	echo "Remake Complete!"
