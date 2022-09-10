@@ -7,7 +7,7 @@
 			so that they can eat before they die of hunger.
 			</br>
 			</br>
-			To use to program: 
+			To use the program: 
 			</br>
 			<code>make all</code>
 			</br>
